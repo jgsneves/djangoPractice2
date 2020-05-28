@@ -5,3 +5,10 @@ from django.shortcuts import render, HttpResponse
 
 def hello(request, nome):
     return HttpResponse(f'Hello {nome}!')
+
+
+def soma(request, num1, num2):
+    soma = num1 + num2
+    mult = num1 * num2
+    div = num1 / num2
+    return HttpResponse(f'A soma dos números é {soma}, a multiplicação é {mult} e a divisão é {div}')
