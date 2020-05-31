@@ -1,18 +1,13 @@
 from django.shortcuts import render, HttpResponse
-
+from core.models import Evento
 # Create your views here.
-
-
-def hello(request, nome):
-    return HttpResponse(f'Hello {nome}!')
-
-
-def soma(request, num1, num2):
-    soma = num1 + num2
-    mult = num1 * num2
-    div = num1 / num2
-    return HttpResponse(f'A soma dos números é {soma}, a multiplicação é {mult} e a divisão é {div}')
 
 
 def welcome(request):
     return HttpResponse('Bem vindo!')
+
+
+def lista_eventos(request):
+    evento = Evento.objects.all()
+    dados = {'eventos': evento}
+    return render(request, 'agenda.html', dados)
